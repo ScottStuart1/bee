@@ -25,16 +25,19 @@ def get_table():
     return df, twoltr
 
 
-def johnson(df, twoltr): 
+def johnson(df, twoltr, show): 
 #     copy of df to return at end
     df2 = df.copy(deep = True)
     
 #     Subtracting from grid based on words (first letter and length)
     words = input()
     clear_output(wait=True)
+    bookstart = "words" if "words" in words else "word"
     bookend = "Type or click spelling-bee" if "Type or click spelling-bee" in words else "spelling-bee"
 
-    words = list(filter(None, set(words[words.find("words")+6:words.find(bookend)].upper().split(" "))))
+    words = list(filter(None, set(words[words.find(bookstart)+1+len(bookstart):words.find(bookend)].upper().split(" "))))
+    if show:
+        print(words)
     for word in words:
         df.loc[word[0:1], len(word)] -= 1
     
