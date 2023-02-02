@@ -2,6 +2,9 @@ name: example-environment
 channels:
   - conda-forge
 dependencies:
-  - numpy
   - pandas
+  - tabulate
+  - urllib.request
+  - bs4
+  - IPython.display
   - tabulate
