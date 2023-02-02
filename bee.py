@@ -5,7 +5,7 @@ from IPython.display import clear_output
 from tabulate import tabulate
 
 def get_table():
-    soup = BeautifulSoup(urlopen("https://www.sbsolver.com/t/answers"), 'lxml')
+    soup = BeautifulSoup(urlopen("https://www.sbsolver.com/t/answers"), "html.parser")
     arr = [element.text for s in soup.find_all('td') for element in s]
     lens = [eval(i) for i in arr[1:arr.index('tot')]]
     tot_idxs = [idx for idx, char in enumerate(arr) if char == 'tot']
