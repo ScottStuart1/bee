@@ -4,7 +4,6 @@ channels:
 dependencies:
   - pandas
   - tabulate
-  - urllib.request
   - bs4
-  - IPython.display
+  - IPython
   - tabulate
