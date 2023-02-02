@@ -1,7 +1,5 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-import numpy as np
-from array import array
 import pandas as pd
 from IPython.display import clear_output
 from tabulate import tabulate
