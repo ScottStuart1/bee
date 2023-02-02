@@ -4,6 +4,14 @@ import pandas as pd
 from IPython.display import clear_output
 from tabulate import tabulate
 
+def run_function():
+    if 'df' not in locals() and 'twoltr' not in locals():
+        df, twoltr = get_table()
+    words = input()
+    while(len(words) > 0):
+        df = johnson(df, twoltr, False, words)
+        words = input()
+        
 def get_table():
     soup = BeautifulSoup(urlopen("https://www.sbsolver.com/t/answers"), "html.parser")
     arr = [element.text for s in soup.find_all('td') for element in s]
