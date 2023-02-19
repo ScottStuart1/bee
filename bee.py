@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from IPython.display import clear_output
 from tabulate import tabulate
+import time 
 
 def run_function():
     if 'df' not in locals() and 'twoltr' not in locals():
@@ -10,6 +11,7 @@ def run_function():
     words = input()
     while(len(words) > 0):
         df = johnson(df, twoltr, False, words)
+        time.sleep(1)
         words = input()
         
 def get_table():
