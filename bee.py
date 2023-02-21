@@ -7,13 +7,12 @@ import time
 import mercury as mr
 
 def run_function():
+    app = mr.App(show_code = True)
     if 'df' not in locals() and 'twoltr' not in locals():
         df, twoltr = get_table()
     words = mr.Text(label="")
-    while(len(words.value) > 0):
-        df = johnson(df, twoltr, False, words.value)
-        time.sleep(1)
-        words = mr.Text(label="")
+    df, grid2 = johnson(df, twoltr, False, words.value)
+    return grid2
         
 def get_table():
     soup = BeautifulSoup(urlopen("https://www.sbsolver.com/t/answers"), "html.parser")
@@ -81,5 +80,6 @@ def johnson(df, twoltr, show, words):
             toAdd.append(text)
             
 #     print and return
-    print(tabulate(df.assign(Two_Ltr=toAdd).replace(0,""), headers = 'keys', tablefmt = 'grid'))
-    return df2
+#     mr.Md(tabulate(df.assign(Two_Ltr=toAdd).replace(0,""), headers = 'keys', tablefmt = 'grid'))
+#     print(tabulate(df.assign(Two_Ltr=toAdd).replace(0,""), headers = 'keys', tablefmt = 'grid'))
+    return df2, tabulate(df.assign(Two_Ltr=toAdd).replace(0,""), headers = 'keys', tablefmt = 'grid')
