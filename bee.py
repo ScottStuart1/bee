@@ -4,15 +4,16 @@ import pandas as pd
 from IPython.display import clear_output
 from tabulate import tabulate
 import time 
+import mercury as mr
 
 def run_function():
     if 'df' not in locals() and 'twoltr' not in locals():
         df, twoltr = get_table()
-    words = input()
-    while(len(words) > 0):
-        df = johnson(df, twoltr, False, words)
+    words = mr.Text(label="")
+    while(len(words.value) > 0):
+        df = johnson(df, twoltr, False, words.value)
         time.sleep(1)
-        words = input()
+        words = mr.Text(label="")
         
 def get_table():
     soup = BeautifulSoup(urlopen("https://www.sbsolver.com/t/answers"), "html.parser")
