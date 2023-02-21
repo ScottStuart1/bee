@@ -1,0 +1,8 @@
+# requirements.txt file
+mljar-mercury
+urllib.request
+bs4
+pandas
+IPython
+tabulate
+time 
