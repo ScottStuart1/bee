@@ -1,6 +1,5 @@
 # requirements.txt file
 mljar-mercury
-urllib
 bs4
 pandas
 IPython
