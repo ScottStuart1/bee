@@ -3,5 +3,4 @@ mljar-mercury
 bs4
 pandas
 IPython
-tabulate
-time 
+tabulate 
