@@ -1,5 +1,4 @@
 # requirements.txt file
-pycurl==7.19.3.1
 mljar-mercury
 bs4
 pandas
