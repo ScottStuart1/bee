@@ -9,6 +9,7 @@ import mercury as mr
 def run_function():
     app = mr.App(show_code = True)
     if 'df' not in locals() and 'twoltr' not in locals():
+        print("fetching table: " + time.ctime())
         df, twoltr = get_table()
     words = mr.Text(label="")
     df, grid2 = johnson(df, twoltr, False, words.value)
